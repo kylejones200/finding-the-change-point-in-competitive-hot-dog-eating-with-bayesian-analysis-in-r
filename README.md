@@ -1,13 +1,44 @@
-# Finding the Change Point in Competitive Hot Dog Eating with Bayesian Analysis in R
+# Finding the Change Point in Competitive Hot Dog Eating with Bayesian Analysis
 
-**Published:** 2024-10-21
-**Medium:** [https://medium.com/@kyle-t-jones/finding-the-change-point-in-competitive-hot-dog-eating-with-bayesian-analysis-in-r-57b4dc95c97b](https://medium.com/@kyle-t-jones/finding-the-change-point-in-competitive-hot-dog-eating-with-bayesian-analysis-in-r-57b4dc95c97b)
+This project demonstrates Bayesian change point detection techniques.
 
-## About
+## Article
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
+Medium article: [Finding the Change Point in Competitive Hot Dog Eating with Bayesian Analysis in R](https://medium.com/@kylejones_47003/finding-the-change-point-in-competitive-hot-dog-eating-with-bayesian-analysis-in-r-57b4dc95c97b)
 
-## Files
+## Project Structure
 
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
+```
+.
+├── README.md           # This file
+├── main.py            # Main entry point
+├── config.yaml        # Configuration file
+├── requirements.txt   # Python dependencies
+├── src/               # Core functions
+│   ├── core.py        # Change point detection functions
+│   └── plotting.py    # Tufte-style plotting utilities
+├── tests/             # Unit tests
+├── data/              # Data files
+└── images/            # Generated plots and figures
+```
+
+## Configuration
+
+Edit `config.yaml` to customize:
+- Data source or synthetic generation
+- Change point parameters
+- Detection method and window
+- Output settings
+
+## Change Point Detection
+
+Methods demonstrated:
+- **Sliding Window**: Compare means before/after potential change points
+- **Bayesian Approach**: Prior on change point location, posterior inference
+- **Uncertainty**: Quantify uncertainty in change point location
+
+## Caveats
+
+- By default, generates synthetic data with known change point.
+- Full Bayesian implementation requires probabilistic programming.
+- Window size affects detection sensitivity.
