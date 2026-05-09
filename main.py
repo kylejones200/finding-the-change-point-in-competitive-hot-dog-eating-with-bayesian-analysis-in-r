@@ -53,7 +53,7 @@ def main():
     logging.info(f"True change point: {config['data']['change_point']}")
     logging.error(f": {abs(detected_cp - config['data']['change_point'])} periods")
     
-                    plot_change_point_detection(df, detected_cp, "Change Point Detection",
+    plot_change_point_detection(df, detected_cp, "Change Point Detection",
                                output_dir / 'change_point.png')
     
     logging.info(f"\nAnalysis complete. Figures saved to {output_dir}")
