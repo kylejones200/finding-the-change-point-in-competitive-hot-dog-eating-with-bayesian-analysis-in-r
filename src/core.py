@@ -44,16 +44,17 @@ def detect_change_point_basic(data: np.ndarray, window: int = 10) -> int:
 def plot_change_point_detection(df: pd.DataFrame, detected_cp: int,
                                 title: str, output_path: Path):
     """Plot change point detection """
-    fig, ax = plt.subplots(figsize=(10, 6))
+                                if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    ax.plot(df['time'], df['value'], color="#4A90A4", linewidth=1.2)
-    ax.axvline(detected_cp, color='red', linestyle='--', linewidth=1.5, 
-              label=f'Detected Change Point: {detected_cp}')
+        ax.plot(df['time'], df['value'], color="#4A90A4", linewidth=1.2)
+        ax.axvline(detected_cp, color='red', linestyle='--', linewidth=1.5, 
+                  label=f'Detected Change Point: {detected_cp}')
     
-    ax.set_xlabel("Time")
-    ax.set_ylabel("Value")
-    ax.legend(loc='best')
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Value")
+        ax.legend(loc='best')
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
