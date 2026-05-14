@@ -33,9 +33,9 @@ Edit `config.yaml` to customize:
 ## Change Point Detection
 
 Methods demonstrated:
-- **Sliding Window**: Compare means before/after potential change points
-- **Bayesian Approach**: Prior on change point location, posterior inference
-- **Uncertainty**: Quantify uncertainty in change point location
+- Sliding Window: Compare means before/after potential change points
+- Bayesian Approach: Prior on change point location, posterior inference
+- Uncertainty: Quantify uncertainty in change point location
 
 ## Caveats
 
