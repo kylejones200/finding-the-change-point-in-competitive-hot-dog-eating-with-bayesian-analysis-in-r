@@ -112,7 +112,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ```{r}
 y
 
-data <- read.csv("/Users/jnesnky/Documents/hd.csv")
+data <- read.csv("data/hd.csv")
 
 results
 

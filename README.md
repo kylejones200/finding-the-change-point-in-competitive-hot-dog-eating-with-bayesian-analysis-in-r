@@ -42,3 +42,11 @@ Methods demonstrated:
 - By default, generates synthetic data with known change point.
 - Full Bayesian implementation requires probabilistic programming.
 - Window size affects detection sensitivity.
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
