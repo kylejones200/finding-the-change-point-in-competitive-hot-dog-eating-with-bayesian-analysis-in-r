@@ -36,12 +36,10 @@ def analyze_change_points(df, change_points):
 def detect_change_points(signal, n_bkps=5, model="l2"):
     """
     Detect change points in the safety data using Binary Segmentation.
-
     Parameters:
     - signal: array-like, the time series data
     - n_bkps: int, maximum number of change points to detect
     - model: str, cost function to use ('l2' for least squares)
-
     Returns:
     - change_points: list of change point indices
     """
@@ -148,7 +146,7 @@ def print_summary(df):
 
 def main() -> None:
     try:
-        import ruptures as rpt
+        import ruptures as rpt  # noqa: F401
     except ImportError:
         print("Installing ruptures...")
         import subprocess
@@ -158,30 +156,23 @@ def main() -> None:
         print("Installation complete.")
 
     df = load_safety_data()
-
     print(
         f"Data loaded: {len(df)} years of safety data from {df['Year'].min()} to {df['Year'].max()}"
     )
-
     print(
         f"RIFR range: {df['RIFR_per_200k'].min():.2f} to {df['RIFR_per_200k'].max():.2f}"
     )
-
     signal = df["RIFR_per_200k"].values
-
     change_points = detect_change_points(signal, n_bkps=5)
-
     print(
         f"Detected {len(change_points) - 1} change points at indices: {change_points[:-1]}"
     )
-
     if change_points:
         plot_change_points(df, signal, change_points)
     else:
         print("No change points detected to plot.")
 
     analyze_change_points(df, change_points)
-
     print_summary(df)
 
 

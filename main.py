@@ -17,7 +17,7 @@ logging.basicConfig(
 )
 
 
-def load_config(config_path: Path = None) -> dict:
+def load_config(config_path: Path | None = None) -> dict:
     """Load configuration from YAML file."""
     if config_path is None:
         config_path = Path(__file__).parent / "config.yaml"
@@ -36,7 +36,6 @@ def main():
         "--output-dir", type=Path, default=None, help="Output directory"
     )
     args = parser.parse_args()
-
     config = load_config(args.config)
     output_dir = (
         Path(args.output_dir)
@@ -44,7 +43,6 @@ def main():
         else Path(config["output"]["figures_dir"])
     )
     output_dir.mkdir(exist_ok=True)
-
     if args.data_path and args.data_path.exists():
         df = pd.read_csv(args.data_path)
     elif config["data"]["generate_synthetic"]:
@@ -63,15 +61,12 @@ def main():
     detected_cp = detect_change_point_basic(
         df["value"].values, config["model"]["detection_window"]
     )
-
     logging.info(f"\nDetected change point: {detected_cp}")
     logging.info(f"True change point: {config['data']['change_point']}")
     logging.error(f": {abs(detected_cp - config['data']['change_point'])} periods")
-
     plot_change_point_detection(
         df, detected_cp, "Change Point Detection", output_dir / "change_point.png"
     )
-
     logging.info(f"\nAnalysis complete. Figures saved to {output_dir}")
 
 
